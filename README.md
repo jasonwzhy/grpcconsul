@@ -17,3 +17,17 @@ The balancer cannot be overridden by balancer option specified by service config
 
 This is an EXPERIMENTAL API.
 ```
+
+```language:go
+import "github.com/jasonwzhy/grpcconsul/resolver"
+func main(){
+    resolver.NewConsulBuilder({consul-ip:port}, "", time.Second*3)
+	ctx, _ := context.WithTimeout(context.Background(), time.Second*10)
+	conn, err := grpc.DialContext(ctx, "service:///{service-name}", grpc.WithInsecure(), grpc.WithBalancerName(roundrobin.Name))
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer conn.Close()
+    ...
+}
+```
