@@ -18,7 +18,11 @@ The balancer cannot be overridden by balancer option specified by service config
 This is an EXPERIMENTAL API.
 ```
 
-```language:go
+Usage
+=====
+This is an example of using the grpcconsul:
+
+```go
 import "github.com/jasonwzhy/grpcconsul/resolver"
 func main(){
     resolver.NewConsulBuilder({consul-ip:port}, "", time.Second*3)
