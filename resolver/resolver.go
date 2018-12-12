@@ -11,7 +11,7 @@ import (
 )
 
 const (
-	Scheme = "vtou"
+	Scheme = "service"
 )
 
 type ConsulResolver struct {
